@@ -6,14 +6,10 @@ namespace PocketBattle
 {
     public class MonsterAction
     {
-        public Guid Id { get; set; }
-        public String Name { get; set; }
-
-        // Shows their current state of health
-        public Int64 Health { get; set; }
-
-        // Set this to specify how many attacks to make against them
-        public Int64 Attacks { get; set; }
+        public int Fire { get; set; }
+        public int Wind { get; set; }
+        public int Water { get; set; }
+        public int Earth { get; set; }
     }
     
 }

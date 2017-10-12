@@ -1,5 +1,4 @@
-﻿using MonsterStore.Monsters;
-using PocketBattle;
+﻿using PocketBattle;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,16 +7,11 @@ namespace MonsterStore
 {
     public class CompetitorsFactory
     {
-        public static List<IMonster> GetCompetitors()
+        public static IEnumerable<IMonster> GetCompetitors(IMediator m)
         {
             return new List<IMonster>()
             {
-                    new BullyRobot(),
-                    new CheatingRobot(),
-                    new CompassionateRobot(),
-                    new LazyRobot(),
-                    new StupidRobot(),
-                    new VeryStupidRobot()
+                    new FireMonster(m)
             };
         }
     }
