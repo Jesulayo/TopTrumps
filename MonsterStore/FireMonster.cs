@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MonsterStore
 {
-    public class FireMonster : IMonster
+    public class FireMonster : IMonsterCard
     {
         public string Name { get; set; }
         public int Health  => Fire + Wind + Water + Earth;
@@ -26,12 +26,12 @@ namespace MonsterStore
 
         }
 
-        public void Attack(IMonster toMonster, MonsterAction attack)
+        public void Attack(IMonsterCard toMonster, MonsterAction attack)
         {
             Mediator.Attack(this, toMonster, new MonsterAction());
         }
 
-        public void DefendAttack(IMonster fromMonster, MonsterAction attack)
+        public void DefendAttack(IMonsterCard fromMonster, MonsterAction attack)
         {
             Fire -= attack.Fire;
             Wind -= attack.Wind;

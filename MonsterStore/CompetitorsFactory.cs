@@ -7,9 +7,9 @@ namespace MonsterStore
 {
     public class CompetitorsFactory
     {
-        public static IEnumerable<IMonster> GetCompetitors(IMediator m)
+        public static IEnumerable<IMonsterCard> GetCompetitors(IMediator m)
         {
-            return new List<IMonster>()
+            return new List<IMonsterCard>()
             {
                     new FireMonster(m)
             };

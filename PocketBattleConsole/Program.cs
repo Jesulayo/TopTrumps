@@ -19,7 +19,7 @@ namespace PocketBattleConsole
 
             monster.Attack(monster2, new MonsterAction() { Earth = 10, Fire = 10, Water = 20, Wind = 70 });
 
-            //TODO build class to manage game
+            
         }
     }
 }
