@@ -1,4 +1,5 @@
 ﻿using MonsterStore.Decks;
+using PocketBattle.Players;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,9 +8,12 @@ namespace PocketBattle.Game
 {
     public interface IGameController
     {
-        IEnumerable<IMonsterCard> PlayerDeck { get; set; }
-        IEnumerable<IMonsterCard> EnemyDeck { get; set; }
-        void SetDecks(IEnumerable<IMonsterCard> cards);
+        IList<IMonsterCard> PlayerOneDeck { get; set; }
+        IList<IMonsterCard> PlayerTwoDeck { get; set; }
+
+        IPlayer PlayerOne { get; set; }
+        IPlayer PlayerTwo { get; set; }
+
         void Begin();
     }
 }

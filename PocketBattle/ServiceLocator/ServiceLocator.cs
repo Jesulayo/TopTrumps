@@ -1,6 +1,6 @@
 ﻿using MonsterStore;
-using PocketBattle.AI;
 using PocketBattle.Game;
+using PocketBattle.Players;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,13 +13,13 @@ namespace PocketBattle.ServiceLocator
         // references to concrete implementations
         private IDictionary<object, object> services;
 
-        internal ServiceLocator()
+        public ServiceLocator()
         {
             services = new Dictionary<object, object>();
 
             // fill the map
             this.services.Add(typeof(IGameController), new GameController());
-            this.services.Add(typeof(IArtificialIntelligence), new BasicAI());
+            this.services.Add(typeof(IPlayer), new BasicAI());
             this.services.Add(typeof(BaseMonsterFactory), new RandomMonsterCardFactory());
         }
 

@@ -18,9 +18,9 @@ namespace MonsterStore
             Stats = new Dictionary<MonsterAttribute, int>
             {
                 { MonsterAttribute.Earth, 10 },
-                { MonsterAttribute.Wind, 10 },
+                { MonsterAttribute.Wind, 56 },
                 { MonsterAttribute.Water, 10 },
-                { MonsterAttribute.Fire, 90 }
+                { MonsterAttribute.Fire, 4 }
             };
 
             Name = "Matt";

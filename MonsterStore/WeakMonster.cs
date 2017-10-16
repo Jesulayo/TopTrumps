@@ -17,10 +17,10 @@ namespace MonsterStore
         {
             Stats = new Dictionary<MonsterAttribute, int>
             {
-                { MonsterAttribute.Earth, 10 },
-                { MonsterAttribute.Wind, 10 },
-                { MonsterAttribute.Water, 10 },
-                { MonsterAttribute.Fire, 90 }
+                { MonsterAttribute.Earth, 4 },
+                { MonsterAttribute.Wind, 3 },
+                { MonsterAttribute.Water, 4 },
+                { MonsterAttribute.Fire, 3 }
             };
 
             Name = "Barry";
