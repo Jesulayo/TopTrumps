@@ -1,4 +1,7 @@
-﻿using System;
+﻿using MonsterStore;
+using PocketBattle.AI;
+using PocketBattle.Game;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -16,8 +19,8 @@ namespace PocketBattle.ServiceLocator
 
             // fill the map
             this.services.Add(typeof(IGameController), new GameController());
-            this.services.Add(typeof(IMediator), new Mediator());
-            this.services.Add(typeof(IArtificialIntelligence), new ServiceC());
+            this.services.Add(typeof(IArtificialIntelligence), new BasicAI());
+            this.services.Add(typeof(BaseMonsterFactory), new RandomMonsterCardFactory());
         }
 
         public T GetService<T>()

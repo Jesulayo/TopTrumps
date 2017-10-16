@@ -1,4 +1,5 @@
-﻿using PocketBattle.Decks;
+﻿using MonsterStore;
+using MonsterStore.Decks;
 using System;
 using System.Collections.Generic;
 using System.Text;

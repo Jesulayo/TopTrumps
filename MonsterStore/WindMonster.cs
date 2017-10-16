@@ -6,14 +6,14 @@ using System.Text;
 
 namespace MonsterStore
 {
-    public class FireMonster : IMonsterCard
+    public class WindMonster : IMonsterCard
     {
         public string Name { get; set; }
         public Dictionary<MonsterAttribute, int> Stats { get; set; }
         public int Power => Stats.Sum(att => att.Value);
         public string Description { get; set; }
 
-        public FireMonster()
+        public WindMonster()
         {
             Stats = new Dictionary<MonsterAttribute, int>
             {
@@ -23,7 +23,8 @@ namespace MonsterStore
                 { MonsterAttribute.Fire, 90 }
             };
 
-            Name = "Helios";
+            Name = "Matt";
+            Description = "A man whose flatulance is so bad, it can literally clear a room";
         }
     }
 }
