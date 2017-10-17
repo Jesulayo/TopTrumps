@@ -35,34 +35,41 @@ namespace PocketBattle.Game
                 PlayerStates[1].CurrentCard = PlayTopCard(PlayerStates[1].Deck);
 
                 //determine whose go it is
-                var playerTurn = PlayerStates[turnCounter % 2 > 0 ? 0 : 1];
-                var comparer = PlayerStates[turnCounter % 2 > 0 ? 1 : 0];
+                var activePlayer = PlayerStates[turnCounter % 2 > 0 ? 0 : 1];
+                var defendingPlayer = PlayerStates[turnCounter % 2 > 0 ? 1 : 0];
 
                 //compare
-                var attr = playerTurn.Player.DecideAttributeToPlay(playerTurn.CurrentCard);
+                var attr = activePlayer.Player.DecideAttributeToPlay(activePlayer.CurrentCard);
                 Console.WriteLine(Environment.NewLine);
-                if (comparer.CurrentCard.Stats[attr.Attr] < attr.Score)
+                Console.WriteLine($"{activePlayer.Label} played {activePlayer.CurrentCard.Name}");
+                Console.WriteLine($"{defendingPlayer.Label} played {defendingPlayer.CurrentCard.Name}");
+                Console.WriteLine($"{activePlayer.Label} chose to play {attr.Attr} with a score of {attr.Score}");
+                var comparerScore = defendingPlayer.CurrentCard.Stats[attr.Attr];
+
+                if (comparerScore < attr.Score)
                 {
-                    Console.WriteLine($"{ playerTurn.Label} WINS ROUND");
-                    playerTurn.Deck.Insert(0, comparer.CurrentCard);
-                    comparer.Deck.Remove(comparer.CurrentCard);
+                    Console.WriteLine($"{ activePlayer.Label} WINS ROUND with a attribute score of {attr.Score} compared to {comparerScore}");
+                    activePlayer.Deck.Insert(0, defendingPlayer.CurrentCard);
+                    defendingPlayer.Deck.Remove(defendingPlayer.CurrentCard);
                 }
-                else if (comparer.CurrentCard.Stats[attr.Attr] > attr.Score)
+                else if (comparerScore > attr.Score)
                 {
-                    Console.WriteLine($"{ comparer.Label} WINS ROUND" );
-                    comparer.Deck.Insert(0, playerTurn.CurrentCard);
-                    playerTurn.Deck.Remove(playerTurn.CurrentCard);
+                    Console.WriteLine($"{ defendingPlayer.Label} WINS ROUND with a score of {comparerScore} compared to {attr.Score}" );
+                    defendingPlayer.Deck.Insert(0, activePlayer.CurrentCard);
+                    activePlayer.Deck.Remove(activePlayer.CurrentCard);
                 }
                 else
                 {
                     Console.WriteLine("Draw");
-                    MoveCardToBottom(playerTurn.Deck);
-                    MoveCardToBottom(comparer.Deck);
+                    MoveCardToBottom(activePlayer.Deck);
+                    MoveCardToBottom(defendingPlayer.Deck);
                 }
                 Console.WriteLine(Environment.NewLine);
 
 
                 turnCounter++;
+                Console.WriteLine("Current Deck Status: " + String.Join(",", PlayerStates.Select(p => p.Deck.Count())));
+                Console.WriteLine(Environment.NewLine);
             }
 
             Console.WriteLine($"The Winner is: {PlayerStates.First(player => player.Deck.Any()).Label}");
