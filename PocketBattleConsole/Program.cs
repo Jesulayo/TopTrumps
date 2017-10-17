@@ -14,6 +14,12 @@ namespace PocketBattleConsole
     {
         static void Main(string[] args)
         {
+
+            BeginGame();
+        }
+
+        static void BeginGame()
+        {
             var locator = new ServiceLocator();
             var controller = locator.GetService<IGameController>();
             var cardFactory = locator.GetService<BaseMonsterFactory>();
@@ -23,7 +29,7 @@ namespace PocketBattleConsole
             var humanDeck = new List<IMonsterCard>();
             var aiDeck = new List<IMonsterCard>();
 
-            for(int i = 0; i <= 4; i++)
+            for (int i = 0; i <= 4; i++)
             {
                 humanDeck.Add(cardFactory.GetCard());
                 aiDeck.Add(cardFactory.GetCard());
@@ -38,7 +44,6 @@ namespace PocketBattleConsole
 
             //3. Start the game
             controller.Begin();
-
         }
     }
 }

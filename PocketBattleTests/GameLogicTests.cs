@@ -8,10 +8,10 @@ using MonsterStore;
 namespace PocketBattleTests
 {
     [TestClass]
-    public class ManyWarsTest
+    public class GameLogicTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void game_picks_winning_player_correctly()
         {
            
         }
