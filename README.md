@@ -23,3 +23,5 @@ The codebase uses a simple service locator to load concrete types at runtime
 A factory pattern is used to generate a random deck of cards
 
 For more information on this codebase and for your required tasks, please consult the document that you will have been provided with.
+
+Thanks.
