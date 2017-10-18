@@ -16,10 +16,10 @@ An interface that defines a card that can be included in the deck. It must inclu
 This interface defines the game controller - the object that is respondsible for running the game and deciding on a winner. In theory you could create new implimentations of 
 this that changed the rules
 
-##Service Locator Pattern
+## Service Locator Pattern
 The codebase uses a simple service locator to load concrete types at runtime
 
-##Factory
+## Factory
 A factory pattern is used to generate a random deck of cards
 
 For more information on this codebase and for your required tasks, please consult the document that you will have been provided with.
