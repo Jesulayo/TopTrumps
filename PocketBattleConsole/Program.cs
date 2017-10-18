@@ -1,6 +1,9 @@
 ﻿using MonsterStore;
-using MonsterStore.Monsters;
+using MonsterStore.Decks;
 using PocketBattle;
+using PocketBattle.Game;
+using PocketBattle.Players;
+using PocketBattle.ServiceLocator;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,35 +14,36 @@ namespace PocketBattleConsole
     {
         static void Main(string[] args)
         {
-            var robotsOut = new List<Guid>();
-            Console.ForegroundColor = ConsoleColor.White;
-            var war = new Mediator(CompetitorsFactory.GetCompetitors());
-            while (war.Monsters.Count(robot => robot.Health > 0) > 1)
+
+            BeginGame();
+        }
+
+        static void BeginGame()
+        {
+            var locator = new ServiceLocator();
+            var controller = locator.GetService<IGameController>();
+            var cardFactory = locator.GetService<BaseMonsterFactory>();
+
+            //1. Get the decks for both players
+
+            var humanDeck = new List<IMonsterCard>();
+            var aiDeck = new List<IMonsterCard>();
+
+            for (int i = 0; i <= 4; i++)
             {
-                war.NextTurn();
-                war.Monsters.OrderBy(monster => monster.Name).ToList().ForEach(monster =>
-                {
-                    if (monster.Health <= 0)
-                    {
-                        if (!robotsOut.Contains(monster.Id))
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine($"{monster.Name} is out! :(");
-                            Console.ForegroundColor = ConsoleColor.White;
-                            robotsOut.Add(monster.Id);
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine($"{monster.Name} health is {monster.Health.ToString()}");
-                    }
-                });
-                Console.WriteLine("");
-                System.Threading.Thread.Sleep(400);
+                humanDeck.Add(cardFactory.GetCard());
+                aiDeck.Add(cardFactory.GetCard());
             }
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"{war.Monsters.SingleOrDefault(r => r.Health > 0).Name} Wins! :)");
-            Console.ReadLine();
+
+            //2. Set decks in game controller
+            controller.PlayerOneDeck = humanDeck;
+            controller.PlayerTwoDeck = aiDeck;
+
+            controller.PlayerOne = new Human();
+            controller.PlayerTwo = new BasicAI();
+
+            //3. Start the game
+            controller.Begin();
         }
     }
 }

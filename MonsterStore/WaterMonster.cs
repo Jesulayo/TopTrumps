@@ -1,0 +1,29 @@
+﻿using MonsterStore.Decks;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace MonsterStore
+{
+    public class WaterMonster : IMonsterCard
+    {
+        public string Name { get; set; }
+        public Dictionary<MonsterAttribute, int> Stats { get; set; }
+        public int Power => Stats.Sum(att => att.Value);
+        public string Description { get; set; }
+
+        public WaterMonster()
+        {
+            Stats = new Dictionary<MonsterAttribute, int>
+            {
+                { MonsterAttribute.Earth, 2 },
+                { MonsterAttribute.Wind, 4 },
+                { MonsterAttribute.Water, 100 },
+                { MonsterAttribute.Fire, 43 }
+            };
+
+            Name = "Hydro";
+        }
+    }
+}
