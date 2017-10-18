@@ -2,7 +2,7 @@
 This class library and console library demonstrate how you might create a simple top trumps style game. It's not perfect by any means but it does make use of a few concepts that may or may not be familiar to graduate developers.
 This codebase is part of BrandFour's hiring process but anyone is free to take a look!
 
-##Rules
+## Rules
 Players both take a card from the top of their deck. They then take it in turns to pick an attribute from their card to compare against their opponent. If the score is higher for your selected attribute, you take the opponent's card. The player who runs out of cards first loses.
 
 
