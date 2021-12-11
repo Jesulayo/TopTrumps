@@ -23,7 +23,8 @@ namespace MonsterStore
                 { MonsterAttribute.Fire, RandomNumber.GenerateRandomNumber() }
             };
 
-            Name = "Helios";
+            //Name = "Helios";
+            Name = RandomNumber.NameBuilder(this.GetType().Name);
         }
     }
 }
