@@ -11,8 +11,6 @@ namespace MonsterStore.Decks
         int Power { get; }
         string Description { get; set; }
 
-        //string MonsterName(string name);
-
         //Random randomNumbers { get; set; }
     }
 }
