@@ -29,6 +29,8 @@ namespace MonsterStore
                     return "Helios";
                 case "wind":
                     return "Matt";
+                case "superg":
+                    return "SuperG";
                 default:
                     return "Barry";
             }

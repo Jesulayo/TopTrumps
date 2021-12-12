@@ -10,7 +10,7 @@ namespace MonsterStore
         public override IMonsterCard GetCard()
         {
             var ran = new Random();
-            var choose = ran.Next(1, 5);
+            var choose = ran.Next(1,7);
             switch (choose)
             {
                 case 1:
@@ -23,6 +23,8 @@ namespace MonsterStore
                     return new WaterMonster();
                 case 5:
                     return new BalancedMonster();
+                case 6:
+                    return new SuperGMonster();
                 default:
                     return new WeakMonster();
             }
