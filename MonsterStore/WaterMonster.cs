@@ -12,18 +12,24 @@ namespace MonsterStore
         public Dictionary<MonsterAttribute, int> Stats { get; set; }
         public int Power => Stats.Sum(att => att.Value);
         public string Description { get; set; }
-
+        //public Random randomNumbers { get; set; }
         public WaterMonster()
         {
             Stats = new Dictionary<MonsterAttribute, int>
             {
-                { MonsterAttribute.Earth, 2 },
-                { MonsterAttribute.Wind, 4 },
-                { MonsterAttribute.Water, 100 },
-                { MonsterAttribute.Fire, 43 }
+                { MonsterAttribute.Earth, RandomNumber.GenerateRandomNumber() },
+                { MonsterAttribute.Wind, RandomNumber.GenerateRandomNumber() },
+                { MonsterAttribute.Water, RandomNumber.GenerateRandomNumber() },
+                { MonsterAttribute.Fire, RandomNumber.GenerateRandomNumber() }
             };
 
             Name = "Hydro";
+
+
+
+
+            //var c = typeof(WaterMonster).Name;
+            //Name = c.Substring(0, c.Length - 7);
         }
     }
 }

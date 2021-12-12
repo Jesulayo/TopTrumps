@@ -17,13 +17,15 @@ namespace MonsterStore
         {
             Stats = new Dictionary<MonsterAttribute, int>
             {
-                { MonsterAttribute.Earth, 78 },
-                { MonsterAttribute.Wind, 3 },
-                { MonsterAttribute.Water, 2 },
-                { MonsterAttribute.Fire, 2 }
+                { MonsterAttribute.Earth, RandomNumber.GenerateRandomNumber() },
+                { MonsterAttribute.Wind, RandomNumber.GenerateRandomNumber() },
+                { MonsterAttribute.Water, RandomNumber.GenerateRandomNumber() },
+                { MonsterAttribute.Fire, RandomNumber.GenerateRandomNumber() }
             };
 
             Name = "Ghia";
         }
+
+
     }
 }
