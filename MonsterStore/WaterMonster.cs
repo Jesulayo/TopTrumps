@@ -17,16 +17,14 @@ namespace MonsterStore
         {
             Stats = new Dictionary<MonsterAttribute, int>
             {
-                { MonsterAttribute.Earth, RandomNumber.GenerateRandomNumber() },
-                { MonsterAttribute.Wind, RandomNumber.GenerateRandomNumber() },
-                { MonsterAttribute.Water, RandomNumber.GenerateRandomNumber() },
-                { MonsterAttribute.Fire, RandomNumber.GenerateRandomNumber() }
+                { MonsterAttribute.Earth, Builder.StatBuilder() },
+                { MonsterAttribute.Wind, Builder.StatBuilder() },
+                { MonsterAttribute.Water, Builder.StatBuilder() },
+                { MonsterAttribute.Fire, Builder.StatBuilder() }
             };
 
             //Name = "Hydro";
-            Name = RandomNumber.NameBuilder(this.GetType().Name);
-            //var c = typeof(WaterMonster).Name;
-            //Name = c.Substring(0, c.Length - 7);
+            Name = Builder.NameBuilder(this.GetType().Name);
         }
     }
 }

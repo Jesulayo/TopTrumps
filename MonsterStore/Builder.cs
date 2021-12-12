@@ -4,18 +4,17 @@ using System.Text;
 
 namespace MonsterStore
 {
-    public static class RandomNumber
+    public static class Builder
     {
         public static Random randomNumber = new Random();
 
-        public static int GenerateRandomNumber()
+        public static int StatBuilder()
         {
             return randomNumber.Next(51);
         }
 
         public static string NameBuilder(string name)
         {
-            //var c = typeof(WaterMonster).Name;
             var monsterName = name.Substring(0, name.Length - 7);
             switch (monsterName.ToLower())
             {
