@@ -13,18 +13,19 @@ namespace MonsterStore
         public int Power => Stats.Sum(att => att.Value);
         public string Description { get; set; }
 
-        public EarthMonster()
+        public EarthMonster(IBuilder builder)
         {
             Stats = new Dictionary<MonsterAttribute, int>
             {
-                { MonsterAttribute.Earth, Builder.StatBuilder() },
-                { MonsterAttribute.Wind, Builder.StatBuilder() },
-                { MonsterAttribute.Water, Builder.StatBuilder() },
-                { MonsterAttribute.Fire, Builder.StatBuilder() }
+                { MonsterAttribute.Earth,  builder.StatBuilder()},
+                { MonsterAttribute.Wind, builder.StatBuilder() },
+                { MonsterAttribute.Water, builder.StatBuilder() },
+                { MonsterAttribute.Fire, builder.StatBuilder() }
             };
 
             //Name = "Ghia";
-            Name = Builder.NameBuilder(this.GetType().Name);
+            Name = builder.NameBuilder(this);
+            //Name = builder.NameBuilder(typeof(EarthMonster));
         }
 
 

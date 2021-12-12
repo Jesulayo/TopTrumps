@@ -17,7 +17,6 @@ namespace PocketBattle.Players
             Console.WriteLine("Thinking....");
             Thread.Sleep(3000);
             Random random = new Random();
-
             var attr = m.Stats.ElementAt(random.Next(1, m.Stats.Count)).Key;
             return (attr, m.Stats[attr]);
         }

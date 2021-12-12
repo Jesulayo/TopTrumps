@@ -1,34 +1,34 @@
-﻿using System;
+﻿using MonsterStore.Decks;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace MonsterStore
 {
-    public static class Builder
+    public class Builder : IBuilder
     {
-        public static Random randomNumber = new Random();
+        private Random randomNumber = new Random();
 
-        public static int StatBuilder()
+        public int StatBuilder()
         {
             return randomNumber.Next(51);
         }
 
-        public static string NameBuilder(string name)
+        public string NameBuilder(IMonsterCard name)
         {
-            var monsterName = name.Substring(0, name.Length - 7);
-            switch (monsterName.ToLower())
+            switch (name)
             {
-                case "water":
+                case WaterMonster waterMonster:
                     return "Hydro";
-                case "balanced":
+                case BalancedMonster balancedMonster:
                     return "Hell Beast";
-                case "earth":
+                case EarthMonster earthMonster:
                     return "Ghia";
-                case "fire":
+                case FireMonster fireMonster:
                     return "Helios";
-                case "wind":
+                case WindMonster windMonster:
                     return "Matt";
-                case "superg":
+                case SuperGMonster superGMonster:
                     return "SuperG";
                 default:
                     return "Barry";
