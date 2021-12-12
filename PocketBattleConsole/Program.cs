@@ -40,7 +40,7 @@ namespace PocketBattleConsole
             controller.PlayerTwoDeck = aiDeck;
 
             controller.PlayerOne = new Human();
-            controller.PlayerTwo = new BasicAI();
+            controller.PlayerTwo = new CrazyAI();
 
             //3. Start the game
             controller.Begin();
