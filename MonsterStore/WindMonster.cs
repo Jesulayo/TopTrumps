@@ -23,8 +23,9 @@ namespace MonsterStore
                 { MonsterAttribute.Fire, RandomNumber.GenerateRandomNumber() }
             };
 
-            Name = "Matt";
+            //Name = "Matt";
             Description = "A man whose flatulance is so bad, it can literally clear a room";
+            Name = RandomNumber.NameBuilder(this.GetType().Name);
         }
     }
 }

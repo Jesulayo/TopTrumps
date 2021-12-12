@@ -23,7 +23,8 @@ namespace MonsterStore
                 { MonsterAttribute.Fire, RandomNumber.GenerateRandomNumber() }
             };
 
-            Name = "Ghia";
+            //Name = "Ghia";
+            Name = RandomNumber.NameBuilder(this.GetType().Name);
         }
 
 
