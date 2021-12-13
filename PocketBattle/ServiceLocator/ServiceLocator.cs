@@ -20,7 +20,8 @@ namespace PocketBattle.ServiceLocator
             // fill the map
             this.services.Add(typeof(IGameController), new GameController());
             this.services.Add(typeof(IPlayer), new BasicAI());
-            this.services.Add(typeof(BaseMonsterFactory), new RandomMonsterCardFactory());
+            this.services.Add(typeof(IBuilder), new Builder());
+            this.services.Add(typeof(BaseMonsterFactory), new RandomMonsterCardFactory(GetService<IBuilder>()));
         }
 
         public T GetService<T>()
