@@ -23,9 +23,8 @@ namespace MonsterStore
                 { MonsterAttribute.Fire, builder.StatBuilder() }
             };
 
-            //Name = "Matt";
+            Name = "Matt";
             Description = "A man whose flatulance is so bad, it can literally clear a room";
-            Name = builder.NameBuilder(this);
         }
     }
 }

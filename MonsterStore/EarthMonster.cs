@@ -23,9 +23,7 @@ namespace MonsterStore
                 { MonsterAttribute.Fire, builder.StatBuilder() }
             };
 
-            //Name = "Ghia";
-            Name = builder.NameBuilder(this);
-            //Name = builder.NameBuilder(typeof(EarthMonster));
+            Name = "Ghia";
         }
 
 
