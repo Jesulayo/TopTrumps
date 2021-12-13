@@ -23,7 +23,7 @@ namespace MonsterStore
                 { MonsterAttribute.Fire, builder.StatBuilder() }
             };
 
-            Name = RandomNumber.NameBuilder(this.GetType().Name);
+            Name = builder.NameBuilder(this);
             //Name = "Hell Beast";
         }
     }

@@ -23,9 +23,7 @@ namespace MonsterStore
             };
 
             //Name = "Hydro";
-            Name = RandomNumber.NameBuilder(this.GetType().Name);
-            //var c = typeof(WaterMonster).Name;
-            //Name = c.Substring(0, c.Length - 7);
+            Name = builder.NameBuilder(this);
         }
     }
 }

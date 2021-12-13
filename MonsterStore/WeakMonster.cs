@@ -24,7 +24,7 @@ namespace MonsterStore
             };
 
             //Name = "Barry";
-            Name = RandomNumber.NameBuilder(this.GetType().Name);
+            Name = builder.NameBuilder(this);
         }
     }
 }
