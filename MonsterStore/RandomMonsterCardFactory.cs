@@ -16,7 +16,7 @@ namespace MonsterStore
         public override IMonsterCard GetCard()
         {
             var ran = new Random();
-            var choose = ran.Next(1,7);
+            var choose = ran.Next(1,8);
             switch (choose)
             {
                 case 1:
