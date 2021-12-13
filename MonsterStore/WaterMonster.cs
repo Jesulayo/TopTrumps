@@ -12,15 +12,14 @@ namespace MonsterStore
         public Dictionary<MonsterAttribute, int> Stats { get; set; }
         public int Power => Stats.Sum(att => att.Value);
         public string Description { get; set; }
-        //public Random randomNumbers { get; set; }
-        public WaterMonster()
+        public WaterMonster(IBuilder builder)
         {
             Stats = new Dictionary<MonsterAttribute, int>
             {
-                { MonsterAttribute.Earth, RandomNumber.GenerateRandomNumber() },
-                { MonsterAttribute.Wind, RandomNumber.GenerateRandomNumber() },
-                { MonsterAttribute.Water, RandomNumber.GenerateRandomNumber() },
-                { MonsterAttribute.Fire, RandomNumber.GenerateRandomNumber() }
+                { MonsterAttribute.Earth, builder.StatBuilder() },
+                { MonsterAttribute.Wind, builder.StatBuilder() },
+                { MonsterAttribute.Water, builder.StatBuilder() },
+                { MonsterAttribute.Fire, builder.StatBuilder() }
             };
 
             //Name = "Hydro";

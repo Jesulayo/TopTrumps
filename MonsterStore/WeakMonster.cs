@@ -13,14 +13,14 @@ namespace MonsterStore
         public int Power => Stats.Sum(att => att.Value);
         public string Description { get; set; }
 
-        public WeakMonster()
+        public WeakMonster(IBuilder builder)
         {
             Stats = new Dictionary<MonsterAttribute, int>
             {
-                { MonsterAttribute.Earth, RandomNumber.GenerateRandomNumber() },
-                { MonsterAttribute.Wind, RandomNumber.GenerateRandomNumber() },
-                { MonsterAttribute.Water, RandomNumber.GenerateRandomNumber() },
-                { MonsterAttribute.Fire, RandomNumber.GenerateRandomNumber() }
+                { MonsterAttribute.Earth, builder.StatBuilder() },
+                { MonsterAttribute.Wind, builder.StatBuilder() },
+                { MonsterAttribute.Water, builder.StatBuilder() },
+                { MonsterAttribute.Fire, builder.StatBuilder() }
             };
 
             //Name = "Barry";
