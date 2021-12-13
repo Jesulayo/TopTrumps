@@ -23,7 +23,8 @@ namespace MonsterStore
                 { MonsterAttribute.Fire, builder.StatBuilder() }
             };
 
-            Name = "SuperG";
+            //Name = "SuperG";
+            Name = builder.NameBuilder(this);
         }
     }
 }
