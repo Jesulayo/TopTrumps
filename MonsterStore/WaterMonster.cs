@@ -22,7 +22,8 @@ namespace MonsterStore
                 { MonsterAttribute.Fire, builder.StatBuilder() }
             };
 
-            Name = "Hydro";
+            //Name = "Hydro";
+            Name = builder.NameBuilder(this);
         }
     }
 }
