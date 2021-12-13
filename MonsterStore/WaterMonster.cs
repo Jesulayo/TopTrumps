@@ -12,7 +12,6 @@ namespace MonsterStore
         public Dictionary<MonsterAttribute, int> Stats { get; set; }
         public int Power => Stats.Sum(att => att.Value);
         public string Description { get; set; }
-        //public Random randomNumbers { get; set; }
         public WaterMonster(IBuilder builder)
         {
             Stats = new Dictionary<MonsterAttribute, int>
